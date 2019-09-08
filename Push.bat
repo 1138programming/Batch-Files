@@ -14,6 +14,9 @@ cd GitHub
 set /p PUSH= What is the file name of your code? (be specific) :
 cd %PUSH% 
 echo.
+set /p MESSAGE= What comment do you want to make on the pushed file: 
+git add .
+git commit -m "%MESSAGE%"
 git push
 choice /c YN /m "Did it work?"
 if %errorlevel%==1 goto again

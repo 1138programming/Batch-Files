@@ -17,6 +17,8 @@ echo.
 git stash
 git fetch 
 git pull
+choice /c YN /m "Did it work?"
+if %errorlevel%==2 goto broken
 choice /c YN /m "Do you need to switch branches"
 if %errorlevel%==1 goto branch 
 if %errorlevel%==2 goto again
@@ -35,4 +37,8 @@ if %errorlevel%==2 exit
 cd..
 goto start
 
+:broken 
+echo Find a programmer
+pause
+exit
 
